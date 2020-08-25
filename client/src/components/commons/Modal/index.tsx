@@ -1,19 +1,27 @@
 import React, { FunctionComponent } from 'react';
 import ReactDOM from 'react-dom';
-import { ModalContainer, Wrapper } from './Modal.styled';
+import { ModalContainer, Wrapper, Overlay, Icon } from './Modal.styled';
+import { FaTimes } from 'react-icons/fa';
 
 interface Props {
   isShowing: boolean;
   children?: React.ReactChild;
+  close?: () => void;
 }
 
 const Modal: FunctionComponent<Props> = React.memo(
-  ({ isShowing, children }) => {
+  ({ isShowing, children, close }) => {
     return isShowing
       ? ReactDOM.createPortal(
           <>
+            <Overlay />
             <Wrapper>
-              <ModalContainer>{children}</ModalContainer>
+              <ModalContainer>
+                <Icon>
+                  <FaTimes onClick={close} />
+                </Icon>
+                {children}
+              </ModalContainer>
             </Wrapper>
           </>,
           document.body

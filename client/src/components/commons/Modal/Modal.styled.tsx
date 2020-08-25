@@ -1,18 +1,39 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  border: 1px solid #d0cccc;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
-  margin: 100px auto 0;
-  transition: all 0.8s;
-  width: 60%;
-  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
 `;
 
 export const ModalContainer = styled.div`
+  z-index: 100;
   background: white;
   position: relative;
+  margin: 1.75rem auto;
   border-radius: 3px;
-  padding: 5px 0 5px 0;
-  height: 100%;
+  max-width: 500px;
+  padding: 2rem;
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.5;
+`;
+
+export const Icon = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
