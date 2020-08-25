@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import Header from './commons/Header';
-import RouterCompoment from './Router';
+import { LayoutContainer, LayoutWrapper } from './Layout.styled';
 
 const Layout: FunctionComponent = ({ children }) => {
   return (
     <>
-      {/* <Header /> */}
-      <RouterCompoment />
+      <Header />
+      <LayoutWrapper>
+        <LayoutContainer>{children}</LayoutContainer>
+      </LayoutWrapper>
     </>
   );
 };

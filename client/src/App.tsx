@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from './components/Layout';
+import RouterCompoment from './components/Router';
 
-const App = () => <Layout />;
+const App = () => <RouterCompoment />;
 
 export default App;
