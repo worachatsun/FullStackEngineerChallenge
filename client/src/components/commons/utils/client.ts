@@ -31,7 +31,7 @@ export const mutator = async <T>(
       headers: token
         ? {
             'Content-Type': 'application/json',
-            Authorization: token,
+            Authorization: `Bearer ${token}`,
           }
         : headersWithoutToken,
       body: JSON.stringify(body),

@@ -8,7 +8,7 @@ export const sequelize = new Sequelize(
   {
     host: config.mySQL.HOST,
     port: config.mySQL.PORT,
-    dialect: 'mssql',
+    dialect: 'mysql',
     pool: {
       acquire: config.mySQL.pool.acquire,
       idle: config.mySQL.pool.idle,
