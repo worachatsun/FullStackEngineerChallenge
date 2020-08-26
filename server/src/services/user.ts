@@ -1,15 +1,16 @@
 import { User, IUserModel } from '../models/User';
 import dotenv from 'dotenv';
+import { Op } from 'sequelize';
 
 dotenv.config();
 
 export default class UserService {
   private UserModel = User;
 
-  public getAllUserExceptAdmin = async () => {
+  public getAllUserExceptAdmin = async (username: string) => {
     try {
       const res = await this.UserModel.findAll({
-        where: { isAdmin: false },
+        where: { isAdmin: false, [Op.not]: { username } },
         attributes: { exclude: ['password'] },
         raw: true,
       });

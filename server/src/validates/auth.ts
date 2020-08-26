@@ -6,3 +6,9 @@ export const authSchema = celebrate({
     password: Joi.string().required(),
   }),
 });
+
+export const removeSchema = celebrate({
+  body: Joi.object({
+    username: Joi.string().required(),
+  }),
+});

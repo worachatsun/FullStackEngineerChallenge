@@ -22,7 +22,7 @@ export default class AuthService {
       const userJson = res.toJSON();
       Reflect.deleteProperty(userJson, 'password');
       const token = this.JWTTokenGenerator({ username: res.username });
-      return { userJson, token };
+      return { user: userJson, token };
     } catch (e) {
       throw new Error('User not registered');
     }
@@ -42,6 +42,14 @@ export default class AuthService {
     } else {
       throw new Error('Invalid Password');
     }
+  };
+
+  public Remove = async (username: string) => {
+    const res = await this.UserModel.destroy({ where: { username } });
+    if (!res) {
+      throw new Error('Cannot remove user');
+    }
+    return res;
   };
 
   private JWTTokenGenerator = (data: object) => {
