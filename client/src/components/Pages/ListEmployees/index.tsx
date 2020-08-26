@@ -1,10 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import Header from '../../commons/Header';
 import Button from '../../commons/Button';
 import {
-  Container,
   ListHeader,
-  Wrapper,
   Table,
   Th,
   Tr,
@@ -15,15 +12,16 @@ import {
 } from './ListEmployees.styled';
 import useModal from '../../Hook/useModal';
 import Modal from '../../commons/Modal';
-import Signin from '../Auth/Signin';
+import Signup from '../Auth/Signup';
 import useSWR from 'swr';
 import { fetcher } from '../../commons/utils/client';
 import { LIST_EMPLOYEES_API } from '../../../constants/routes';
 import Assign from '../Assign';
 import { FaUserTie } from 'react-icons/fa';
 import Layout from '../../Layout';
+import Remove from '../Auth/Remove';
 
-interface IListModel {
+export interface IListModel {
   id: number;
   username: string;
   isAdmin: boolean;
@@ -33,8 +31,12 @@ interface IListModel {
 
 const ListEmployees: FunctionComponent = () => {
   const { isShowing, toggle, close } = useModal();
-  const token = localStorage.getItem('token');
-  const { data } = useSWR<IListModel[]>([LIST_EMPLOYEES_API, token], fetcher);
+  const token = localStorage.getItem('token') || '';
+  const { data, mutate } = useSWR<IListModel[]>(
+    [LIST_EMPLOYEES_API, token],
+    fetcher
+  );
+
   return (
     <Layout>
       <ListHeader>
@@ -46,22 +48,22 @@ const ListEmployees: FunctionComponent = () => {
           <FaUserTie size={'1.5em'} color='#ff0033' />
           <ThText>Name</ThText>
         </Th>
-        {data?.map((user: IListModel) => (
-          <>
+        {data?.map((user: IListModel, index: number) => (
+          <div key={index}>
             <Hr />
             <Tr>
               <div>{user.username}</div>
               <ButtonContainer>
-                <Assign id={user.id} />
-                <Button>Remove</Button>
+                <Assign username={user.username} users={data} token={token} />
+                <Remove username={user.username} mutate={mutate} />
               </ButtonContainer>
             </Tr>
-          </>
+          </div>
         ))}
         <Hr />
       </Table>
       <Modal isShowing={isShowing} close={close}>
-        <Signin />
+        <Signup />
       </Modal>
     </Layout>
   );
