@@ -1,38 +1,84 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import Button from '../../commons/Button';
-import Input from '../../commons/Input';
-import { useForm } from 'react-hook-form';
 import Modal from '../../commons/Modal';
 import useModal from '../../Hook/useModal';
-import { ButtonWrapper, Container } from './Assign.styled';
-
+import {
+  Container,
+  Lable,
+  ButtonContainer,
+  Tag,
+  TagContainer,
+} from './Assign.styled';
+import Select from 'react-select';
+import { IListModel } from '../ListEmployees';
+import { REVIEW_API, REVIEW_USERS_API } from '../../../constants/routes';
+import { HttpMethod, mutator, fetcher } from '../../commons/utils/client';
+import useSWR from 'swr';
+import { filterOptions } from './utils';
 interface IAssign {
-  id: number;
+  username: string;
+  users: IListModel[];
+  token: string;
 }
 
-const Assign: FunctionComponent<IAssign> = () => {
-  const { register, handleSubmit, errors } = useForm();
+interface IOption {
+  value: string;
+  label: string;
+}
+
+const Assign: FunctionComponent<IAssign> = ({ username, users, token }) => {
   const { isShowing, toggle, close } = useModal();
+  const [option, setOption] = useState();
+  const [assignUsers, setAssignUsers] = useState<IOption[]>();
+  const { data: reviewed = [], mutate } = useSWR<string[]>(
+    [REVIEW_USERS_API, token, `reviewTo=${username}`],
+    fetcher
+  );
+
+  const handleChange = (selectedOption: any) => {
+    setOption(selectedOption);
+  };
+
   const onSubmit = async () => {
-    close();
+    try {
+      const token = localStorage.getItem('token') || '';
+      const { response } = await mutator(REVIEW_API, HttpMethod.POST, token, {
+        users: option,
+        assignee: username,
+      });
+      if (!response?.ok)
+        throw new Error(`${response?.status}: ${response?.statusText}`);
+      const data = await response?.json();
+      mutate(reviewed);
+      setAssignUsers(filterOptions(users, reviewed));
+      close();
+      if (data.error) throw new Error(`Unable to add user`);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const onClickAssign = () => {
+    toggle();
+    mutate(reviewed);
+    setAssignUsers(filterOptions(users, reviewed));
   };
 
   return (
     <>
-      <Button onClick={toggle}>Assign</Button>
+      <Button onClick={onClickAssign}>Assign</Button>
       <Modal isShowing={isShowing} close={close}>
         <Container>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Input
-              title={'Assign to'}
-              name='assign'
-              errors={errors.assign}
-              register={register}
-            />
-            <ButtonWrapper>
-              <Button>Assign reviews</Button>
-            </ButtonWrapper>
-          </form>
+          <Lable>Assign to: {username}</Lable>
+          <Select options={assignUsers} isMulti onChange={handleChange} />
+          <TagContainer>
+            {reviewed?.map((user, index: number) => (
+              <Tag key={index}>{user}</Tag>
+            ))}
+          </TagContainer>
+          <ButtonContainer>
+            <Button onClick={onSubmit}>Assign</Button>
+          </ButtonContainer>
         </Container>
       </Modal>
     </>
