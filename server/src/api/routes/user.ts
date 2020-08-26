@@ -7,7 +7,7 @@ export default (app: Router) => {
   app.use('/users', route);
 
   route.get(
-    '/',
+    '/list',
     authenticateToken,
     async (req: IUserAuthRequest, res: Response) => {
       const userService = new UserService();
@@ -15,6 +15,17 @@ export default (app: Router) => {
         req.user?.username || ''
       );
       return res.json(users).status(200);
+    }
+  );
+
+  route.get(
+    '/',
+    authenticateToken,
+    async (req: IUserAuthRequest, res: Response) => {
+      const userService = new UserService();
+      const user = await userService.getUser(req.user?.username || '');
+      console.log(user);
+      return res.json(user).status(200);
     }
   );
 };

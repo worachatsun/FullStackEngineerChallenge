@@ -34,6 +34,18 @@ export default class ReviewService {
     }
   };
 
+  public getReviewsByUsername = async (username: string) => {
+    try {
+      const reviews = await this.ReviewModel.findAll({
+        where: { reviewBy: username },
+        raw: true,
+      });
+      return reviews;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   private mapReview = (assignee: string, users: string[]) => {
     let reviews: object[] = [];
     users.map((user: string) => {

@@ -34,4 +34,17 @@ export default (app: Router) => {
       return res.json(reviews).status(200);
     }
   );
+
+  route.get(
+    '/list',
+    authenticateToken,
+    async (req: IUserAuthRequest, res: Response) => {
+      const { username } = req.query;
+      const reviewService = new ReviewService();
+      const reviews = await reviewService.getReviewsByUsername(
+        username as string
+      );
+      return res.json(reviews).status(200);
+    }
+  );
 };

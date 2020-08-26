@@ -28,6 +28,12 @@ export default class AuthService {
     }
   };
 
+  public passwordGenerator = (password: string) => {
+    const salt = genSaltSync(10);
+    const hash = hashSync(password, salt);
+    return hash;
+  };
+
   public SignIn = async (username: string, password: string) => {
     const res = await this.UserModel.findOne({ where: { username } });
     if (!res) {
