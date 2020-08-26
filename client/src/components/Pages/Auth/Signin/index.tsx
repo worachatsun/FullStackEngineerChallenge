@@ -1,12 +1,12 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import { Container, Label } from './Signin.styled';
 import Input from '../../../commons/Input';
 import Button from '../../../commons/Button';
 import { useForm } from 'react-hook-form';
-import { SignupSchema } from '../../../../schemas/signin';
 import { SIGNIN_API } from '../../../../constants/routes';
 import { mutator, HttpMethod } from '../../../commons/utils/client';
 import { useHistory } from 'react-router-dom';
+import { UserContext, UserActionType } from '../../../../context/UserContext';
 
 interface ISignin {
   username: string;
@@ -15,6 +15,7 @@ interface ISignin {
 
 const Signin: FunctionComponent = () => {
   const { register, handleSubmit, errors } = useForm<ISignin>();
+  const { dispatch } = useContext(UserContext);
   let history = useHistory();
 
   const onSubmit = async (user: ISignin) => {
@@ -30,6 +31,7 @@ const Signin: FunctionComponent = () => {
         throw new Error(`${response?.status}: ${response?.statusText}`);
       const data = await response?.json();
       localStorage.setItem('token', data.user.token);
+      dispatch({ type: UserActionType.ADD_USER, payload: data.user.user });
       history.push('/list');
     } catch (error) {
       console.error(error);
