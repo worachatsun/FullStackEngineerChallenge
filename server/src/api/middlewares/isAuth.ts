@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export interface IUserAuthRequest extends Request {
-  user?: object;
+  user?: { username: string; iat: number };
 }
 
 const authenticateToken = (
