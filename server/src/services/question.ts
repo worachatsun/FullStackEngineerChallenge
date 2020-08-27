@@ -4,7 +4,7 @@ import { Op } from 'sequelize';
 
 dotenv.config();
 
-export default class UserService {
+export default class QuestionService {
   private QuestionModel = Question;
 
   public getAllQuestion = async () => {

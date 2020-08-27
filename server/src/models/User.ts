@@ -7,7 +7,7 @@ export interface IUserModel {
   password: string;
   isAdmin: boolean;
   createdAt: Date;
-  UpdatedAt: Date;
+  updatedAt: Date;
 }
 
 export class User extends Model {
@@ -16,7 +16,7 @@ export class User extends Model {
   password!: string;
   isAdmin!: boolean;
   createdAt!: Date;
-  UpdatedAt!: Date;
+  updatedAt!: Date;
 }
 
 User.init(
@@ -39,7 +39,7 @@ User.init(
   },
   {
     sequelize,
-    tableName: 'user',
+    tableName: 'User',
     freezeTableName: true,
   }
 );
