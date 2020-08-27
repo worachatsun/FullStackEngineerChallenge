@@ -1,1 +1,1 @@
-export const CLOSE_ICON = 'close';
+export const CLOSE_ICON = "close";

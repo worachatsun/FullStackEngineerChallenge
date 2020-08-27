@@ -1,61 +1,61 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FlexAlignCenter = styled.div`
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 `;
 
 export const Container = styled(FlexAlignCenter)`
-  width: 100%;
-  flex-direction: column;
+    width: 100%;
+    flex-direction: column;
 `;
 
 export const Wrapper = styled(FlexAlignCenter)`
-  width: 70%;
-  flex-direction: column;
+    width: 70%;
+    flex-direction: column;
 `;
 
 export const ListHeader = styled(FlexAlignCenter)`
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-  margin: 0 0 30px 0;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0 0 30px 0;
 `;
 
 export const Table = styled.div`
-  text-align: left;
-  width: 100%;
-  padding: 20px;
-  box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.1);
 `;
 
 export const Th = styled.div`
-  font-size: 1.1em;
-  display: flex;
+    font-size: 1.1em;
+    display: flex;
 `;
 
 export const Tr = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
 `;
 
 export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 30%;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
 `;
 
 export const Hr = styled.hr`
-  border: 1px solid #444140;
-  opacity: 0.5;
+    border: 1px solid #444140;
+    opacity: 0.5;
 `;
 
 export const Lable = styled.div`
-  font-size: 1.5em;
+    font-size: 1.5em;
 `;
 
 export const ThText = styled.div`
-  margin-left: 10px;
+    margin-left: 10px;
 `;

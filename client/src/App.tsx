@@ -1,5 +1,5 @@
-import React from 'react';
-import RouterCompoment from './components/Router';
+import React from "react";
+import RouterCompoment from "./components/Router";
 
 const App = () => <RouterCompoment />;
 
