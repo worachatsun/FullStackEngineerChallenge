@@ -15,7 +15,6 @@ Question.init(
   {
     question: {
       type: DataTypes.STRING,
-      unique: true,
       allowNull: false,
     },
   },

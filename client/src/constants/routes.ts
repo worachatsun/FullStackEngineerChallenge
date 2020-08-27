@@ -8,3 +8,4 @@ export const REVIEW_USERS_API = 'http://localhost:3001/api/review/users';
 export const REVIEW_LIST_API = 'http://localhost:3001/api/review/list';
 export const LIST_EMPLOYEES_API = 'http://localhost:3001/api/users/list';
 export const USER_DETAIL_API = 'http://localhost:3001/api/users';
+export const LIST_QUESTIONS_API = 'http://localhost:3001/api/questions';

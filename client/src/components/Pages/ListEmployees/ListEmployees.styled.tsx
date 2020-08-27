@@ -22,7 +22,7 @@ export const ListHeader = styled(FlexAlignCenter)`
   margin: 0 0 30px 0;
 `;
 
-export const Table = styled.table`
+export const Table = styled.div`
   text-align: left;
   width: 100%;
   padding: 20px;
