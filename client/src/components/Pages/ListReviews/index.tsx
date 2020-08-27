@@ -23,12 +23,17 @@ const ListReviews: FunctionComponent = () => {
   const [review, setReview] = useState<IReviewModel>();
   const token = localStorage.getItem('token') || '';
   const { state } = useContext(UserContext);
-  const { data } = useSWR<IReviewModel[]>(
+  const { data = [], mutate } = useSWR<IReviewModel[]>(
     [REVIEW_LIST_API, token, `username=${state.username}`],
     fetcher
   );
 
-  return data ? (
+  const closeModal = () => {
+    close();
+    mutate([...(data as IReviewModel[])]);
+  };
+
+  return data && data.length ? (
     <Layout>
       <ListHeader>
         <Lable>List Employees</Lable>
@@ -48,11 +53,15 @@ const ListReviews: FunctionComponent = () => {
         })}
       </Table>
       <Modal isShowing={isShowing} close={close}>
-        <Question review={review as IReviewModel} />
+        <Question review={review as IReviewModel} close={closeModal} />
       </Modal>
     </Layout>
   ) : (
-    <div></div>
+    <Layout>
+      <Table>
+        <Lable>No waiting list</Lable>
+      </Table>
+    </Layout>
   );
 };
 
