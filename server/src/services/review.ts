@@ -1,13 +1,10 @@
 import { Review } from '../models/Review';
-import { User } from '../models/User';
 import dotenv from 'dotenv';
-import { Op } from 'sequelize';
 
 dotenv.config();
 
 export default class ReviewService {
   private ReviewModel = Review;
-  private UserModel = User;
 
   public assignReviwer = async (assignee: string, users: string[]) => {
     try {

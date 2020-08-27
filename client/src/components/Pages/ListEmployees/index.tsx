@@ -37,7 +37,7 @@ const ListEmployees: FunctionComponent = () => {
     fetcher
   );
 
-  return (
+  return data ? (
     <Layout>
       <ListHeader>
         <Lable>List Employees</Lable>
@@ -48,7 +48,7 @@ const ListEmployees: FunctionComponent = () => {
           <FaUserTie size={'1.5em'} color='#ff0033' />
           <ThText>Name</ThText>
         </Th>
-        {data?.map((user: IListModel, index: number) => (
+        {data.map((user: IListModel, index: number) => (
           <div key={index}>
             <Hr />
             <Tr>
@@ -66,6 +66,8 @@ const ListEmployees: FunctionComponent = () => {
         <Signup />
       </Modal>
     </Layout>
+  ) : (
+    <div></div>
   );
 };
 
