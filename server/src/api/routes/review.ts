@@ -47,4 +47,14 @@ export default (app: Router) => {
       return res.json(reviews).status(200);
     }
   );
+
+  route.get(
+    '/reviewed',
+    authenticateToken,
+    async (req: IUserAuthRequest, res: Response) => {
+      const reviewService = new ReviewService();
+      const reviews = await reviewService.getAllReviewed();
+      return res.json(reviews).status(200);
+    }
+  );
 };
