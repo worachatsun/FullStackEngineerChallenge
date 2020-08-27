@@ -1,5 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../loaders/mysql';
+import { Answer } from './Answer';
 
 export interface IReviewModel {
   id: number;
@@ -7,7 +8,7 @@ export interface IReviewModel {
   reviewBy: string;
   isReview: boolean;
   createdAt: Date;
-  UpdatedAt: Date;
+  updatedAt: Date;
 }
 
 export class Review extends Model {
@@ -16,7 +17,7 @@ export class Review extends Model {
   reviewBy!: string;
   isReview!: boolean;
   createdAt!: Date;
-  UpdatedAt!: Date;
+  updatedAt!: Date;
 }
 
 Review.init(
@@ -37,7 +38,9 @@ Review.init(
   },
   {
     sequelize,
-    tableName: 'review',
+    tableName: 'Review',
     freezeTableName: true,
   }
 );
+
+Review.hasMany(Answer, { as: 'answers', foreignKey: 'reviewId' });

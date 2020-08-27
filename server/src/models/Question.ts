@@ -1,5 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../loaders/mysql';
+import { Answer } from './Answer';
 
 export interface IUserModel {
   id: number;
@@ -15,12 +16,15 @@ Question.init(
   {
     question: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
     },
   },
   {
     sequelize,
-    tableName: 'question',
+    tableName: 'Question',
     freezeTableName: true,
   }
 );
+
+Question.hasMany(Answer, { as: 'answer', foreignKey: 'questionId' });
