@@ -1,4 +1,4 @@
-import { User, IUserModel } from '../models/User';
+import { User } from '../models';
 import dotenv from 'dotenv';
 import { Op } from 'sequelize';
 

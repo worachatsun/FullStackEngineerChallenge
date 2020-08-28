@@ -1,4 +1,4 @@
-import { Question } from '../models/Question';
+import { Question } from '../models';
 import dotenv from 'dotenv';
 import { Op } from 'sequelize';
 

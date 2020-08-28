@@ -2,7 +2,7 @@ import { Router, Request, Response, NextFunction } from 'express';
 import { authSchema, removeSchema } from '../../validates/auth';
 import AuthService from '../../services/auth';
 import { IUser } from '../../services/auth';
-import { User } from '../../models/User';
+import { User } from '../../models';
 
 const route = Router();
 

@@ -32,7 +32,6 @@ const Assign: FunctionComponent<IProps> = ({ username, users, token }) => {
     const handleChange = (selectedOption: any) => {
         setOption(selectedOption);
     };
-
     const onSubmit = async () => {
         try {
             const { response } = await mutator(REVIEW_API, HttpMethod.POST, token, {

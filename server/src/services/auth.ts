@@ -1,4 +1,4 @@
-import { User, IUserModel } from '../models/User';
+import { User } from '../models';
 import { genSaltSync, hashSync, compareSync } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import dotenv from 'dotenv';

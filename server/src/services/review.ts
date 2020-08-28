@@ -1,6 +1,5 @@
-import { Review } from '../models/Review';
+import { Review, Answer } from '../models';
 import dotenv from 'dotenv';
-import { Answer } from '../models/Answer';
 
 dotenv.config();
 
