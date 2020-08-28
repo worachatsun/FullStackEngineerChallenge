@@ -1,11 +1,6 @@
 import React, { createContext, Dispatch, FunctionComponent, useReducer } from "react";
 import { reducer } from "./reducer";
-
-export interface IUserContext {
-    username: string;
-    password: string;
-    isAdmin: boolean;
-}
+import { IUserContext, IUserAction } from "./types";
 
 const initUserContext: IUserContext = {
     username: "",
@@ -13,18 +8,9 @@ const initUserContext: IUserContext = {
     isAdmin: false,
 };
 
-export enum UserActionType {
-    ADD_USER = "ADD_USER",
-}
-
-export interface IProjectAction {
-    type: UserActionType;
-    payload: IUserContext;
-}
-
 export const UserContext = createContext<{
     state: IUserContext;
-    dispatch: Dispatch<IProjectAction>;
+    dispatch: Dispatch<IUserAction>;
 }>({
     state: initUserContext,
     dispatch: () => null,

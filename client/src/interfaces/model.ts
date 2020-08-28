@@ -6,6 +6,14 @@ export interface IListModel {
     updatedAt: Date;
 }
 
+export const UserMockup = {
+    id: 1,
+    username: "test",
+    isAdmin: true,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+};
+
 export interface IReviewModel {
     id: number;
     reviewTo: string;

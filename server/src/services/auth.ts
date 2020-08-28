@@ -14,8 +14,7 @@ export default class AuthService {
   private UserModel = User;
 
   public SignUp = async (user: IUser) => {
-    const salt = genSaltSync(10);
-    const hash = hashSync(user.password, salt);
+    const hash = this.passwordGenerator(user.password);
     user.password = hash;
     try {
       const res = await this.UserModel.create(user);

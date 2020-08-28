@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import { useForm } from "react-hook-form";
 import { mutate } from "swr";
 import { LIST_EMPLOYEES_API, SIGNUP_API } from "../../../../constants/routes";
-import { SignupSchema } from "../../../../schemas/signin";
+import { SignupSchema } from "../../../../schemas/auth";
 import Button from "../../../commons/Button";
 import Input from "../../../commons/Input";
 import { HttpMethod, mutator } from "../../../commons/utils/client";

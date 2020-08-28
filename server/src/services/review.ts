@@ -62,7 +62,7 @@ export default class ReviewService {
     }
   };
 
-  private mapReview = (assignee: string, users: string[]) => {
+  public mapReview = (assignee: string, users: string[]) => {
     let reviews: object[] = [];
     users.map((user: string) => {
       reviews.push({ reviewTo: assignee, reviewBy: user });
