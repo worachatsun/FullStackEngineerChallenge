@@ -16,8 +16,26 @@ export default class AnswerService {
 
   public setMultiAnswer = async (answers: IAnswerPayload[]) => {
     try {
-      const res = await this.AnswerModel.bulkCreate(answers, {
-        updateOnDuplicate: ['questionId', 'reviewId'],
+      answers.map(async ({ questionId, answer, reviewId }: IAnswerPayload) => {
+        const res = await this.AnswerModel.findOne({
+          where: {
+            questionId,
+            reviewId,
+          },
+        });
+        if (!res) {
+          await this.AnswerModel.create({ questionId, answer, reviewId });
+        } else {
+          await this.AnswerModel.update(
+            { answer },
+            {
+              where: {
+                questionId,
+                reviewId,
+              },
+            }
+          );
+        }
       });
       await this.ReviewModel.update(
         { isReview: true },
@@ -27,9 +45,9 @@ export default class AnswerService {
           },
         }
       );
-      return res;
     } catch (e) {
       console.log(e);
     }
+    return true;
   };
 }
