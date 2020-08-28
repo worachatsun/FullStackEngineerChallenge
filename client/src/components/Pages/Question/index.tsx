@@ -12,6 +12,7 @@ import {
     QuestionContainer,
     QuestionText,
     Radio,
+    ErrorMessage,
 } from "./Question.styled";
 import { IPerformanceModel } from "../Performance";
 
@@ -47,6 +48,23 @@ const Question: FunctionComponent<IProps> = ({ review, close }) => {
         }
     };
 
+    const renderRadio = (id: number) => {
+        let radios = [];
+        for (let i = 1; i <= 5; i++) {
+            radios.push(
+                <Radio
+                    key={i}
+                    type="radio"
+                    value={i}
+                    name={`${id}`}
+                    defaultChecked={reviewedAns.get(id) === `${i}` ? true : false}
+                    ref={register({ required: true })}
+                />
+            );
+        }
+        return radios;
+    };
+
     return questions ? (
         <>
             <Lable>Review to {review.reviewTo}</Lable>
@@ -64,45 +82,10 @@ const Question: FunctionComponent<IProps> = ({ review, close }) => {
                 {questions.map(({ question, id }, index: number) => (
                     <QuestionContainer key={index}>
                         <QuestionText>{question}</QuestionText>
-                        <AnswerContainer>
-                            <Radio
-                                type="radio"
-                                value="1"
-                                name={`${id}`}
-                                defaultChecked={reviewedAns.get(id) == "1" ? true : false}
-                                ref={register({ required: true })}
-                            />
-                            <Radio
-                                type="radio"
-                                value="2"
-                                name={`${id}`}
-                                defaultChecked={reviewedAns.get(id) == "2" ? true : false}
-                                ref={register({ required: true })}
-                            />
-                            <Radio
-                                type="radio"
-                                value="3"
-                                name={`${id}`}
-                                defaultChecked={reviewedAns.get(id) == "3" ? true : false}
-                                ref={register({ required: true })}
-                            />
-                            <Radio
-                                type="radio"
-                                value="4"
-                                name={`${id}`}
-                                defaultChecked={reviewedAns.get(id) == "4" ? true : false}
-                                ref={register({ required: true })}
-                            />
-                            <Radio
-                                type="radio"
-                                value="5"
-                                name={`${id}`}
-                                defaultChecked={reviewedAns.get(id) == "5" ? true : false}
-                                ref={register({ required: true })}
-                            />
-                        </AnswerContainer>
+                        <AnswerContainer>{renderRadio(id)}</AnswerContainer>
                     </QuestionContainer>
                 ))}
+                {Object.keys(errors).length !== 0 ? <ErrorMessage>Please answer all questions</ErrorMessage> : ""}
                 <ButtonContainer>
                     <Button>Submit</Button>
                 </ButtonContainer>

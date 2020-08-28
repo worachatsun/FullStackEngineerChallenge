@@ -35,3 +35,11 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Radio = styled.input``;
+
+export const ErrorMessage = styled.div`
+    display: flex;
+    justify-content: center;
+    background: #ff0033;
+    opacity: 0.9;
+    color: white;
+`;
