@@ -46,7 +46,6 @@ export default class ReviewService {
   public getAllReviewed = async () => {
     try {
       const reviews = await this.ReviewModel.findAll({
-        where: { isReview: true },
         include: ['answers'],
       });
       return reviews;

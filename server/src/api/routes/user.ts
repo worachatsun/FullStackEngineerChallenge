@@ -10,9 +10,10 @@ export default (app: Router) => {
     '/list',
     authenticateToken,
     async (req: IUserAuthRequest, res: Response) => {
+      const user = req.user;
       const userService = new UserService();
       const users = await userService.getAllUserExceptAdmin(
-        req.user?.username || ''
+        user?.username as string
       );
       return res.json(users).status(200);
     }

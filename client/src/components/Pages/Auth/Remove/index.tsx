@@ -7,12 +7,12 @@ import { HttpMethod, mutator } from "../../../commons/utils/client";
 import useModal from "../../../Hook/useModal";
 import { ButtonContainer, Container, Lable } from "./Remove.styled";
 
-interface Props {
+interface IProps {
     username: string;
     mutate?: () => void;
 }
 
-const Remove: FunctionComponent<Props> = ({ username }) => {
+const Remove: FunctionComponent<IProps> = ({ username }) => {
     const { isShowing, toggle, close } = useModal();
 
     const onSubmit = async () => {

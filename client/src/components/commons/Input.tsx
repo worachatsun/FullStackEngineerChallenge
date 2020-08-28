@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { FieldErrors } from "react-hook-form";
 import { InputContainer } from "./Input.styled";
 
-interface Props {
+interface IProps {
     title: string;
     name: string;
     errors?: FieldErrors<any>;
@@ -13,7 +13,7 @@ interface Props {
     placeholder?: string;
 }
 
-const Input: FunctionComponent<Props> = ({
+const Input: FunctionComponent<IProps> = ({
     title,
     name,
     errors,

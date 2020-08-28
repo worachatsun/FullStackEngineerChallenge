@@ -9,7 +9,7 @@ import useModal from "../../Hook/useModal";
 import { IListModel } from "../ListEmployees";
 import { ButtonContainer, Container, Lable, Tag, TagContainer } from "./Assign.styled";
 import { filterOptions } from "./utils";
-interface IAssign {
+interface IProps {
     username: string;
     users: IListModel[];
     token: string;
@@ -20,7 +20,7 @@ interface IOption {
     label: string;
 }
 
-const Assign: FunctionComponent<IAssign> = ({ username, users, token }) => {
+const Assign: FunctionComponent<IProps> = ({ username, users, token }) => {
     const { isShowing, toggle, close } = useModal();
     const [option, setOption] = useState();
     const [assignUsers, setAssignUsers] = useState<IOption[]>();
@@ -42,7 +42,7 @@ const Assign: FunctionComponent<IAssign> = ({ username, users, token }) => {
             if (!response?.ok) throw new Error(`${response?.status}: ${response?.statusText}`);
             const data = await response?.json();
             mutate(reviewed);
-            setAssignUsers(filterOptions(users, reviewed));
+            setAssignUsers(filterOptions(users, reviewed, username));
             close();
             if (data.error) throw new Error(`Unable to add user`);
         } catch (error) {
@@ -53,18 +53,18 @@ const Assign: FunctionComponent<IAssign> = ({ username, users, token }) => {
     const onClickAssign = () => {
         toggle();
         mutate(reviewed);
-        setAssignUsers(filterOptions(users, reviewed));
+        setAssignUsers(filterOptions(users, reviewed, username));
     };
 
-    return (
+    return reviewed ? (
         <>
             <Button onClick={onClickAssign}>Assign</Button>
             <Modal isShowing={isShowing} close={close}>
                 <Container>
                     <Lable>Assign to: {username}</Lable>
-                    <Select options={assignUsers} isMulti={true} onChange={handleChange} />
+                    <Select options={assignUsers} isMulti onChange={handleChange} />
                     <TagContainer>
-                        {reviewed?.map((user, index: number) => (
+                        {reviewed.map((user, index: number) => (
                             <Tag key={index}>{user}</Tag>
                         ))}
                     </TagContainer>
@@ -74,6 +74,8 @@ const Assign: FunctionComponent<IAssign> = ({ username, users, token }) => {
                 </Container>
             </Modal>
         </>
+    ) : (
+        <div />
     );
 };
 

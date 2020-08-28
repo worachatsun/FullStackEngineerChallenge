@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { ButtonContainer } from "./Button.styled";
 
-interface Props {
+interface IProps {
     children: React.ReactNode;
     onClick?: () => void;
 }
 
-const Button: FunctionComponent<Props> = ({ children, onClick }) => {
+const Button: FunctionComponent<IProps> = ({ children, onClick }) => {
     return <ButtonContainer onClick={onClick}>{children}</ButtonContainer>;
 };
 

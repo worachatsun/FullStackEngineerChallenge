@@ -3,13 +3,13 @@ import ReactDOM from "react-dom";
 import { FaTimes } from "react-icons/fa";
 import { Icon, ModalContainer, Overlay, Wrapper } from "./Modal.styled";
 
-interface Props {
+interface IProps {
     isShowing: boolean;
     children?: React.ReactChild;
     close?: () => void;
 }
 
-const Modal: FunctionComponent<Props> = React.memo(({ isShowing, children, close }) => {
+const Modal: FunctionComponent<IProps> = React.memo(({ isShowing, children, close }) => {
     return isShowing
         ? ReactDOM.createPortal(
               <>
