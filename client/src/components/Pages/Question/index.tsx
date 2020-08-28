@@ -1,7 +1,7 @@
-import React, { FunctionComponent, useEffect } from "react";
+import React, { FunctionComponent } from "react";
 import { useForm } from "react-hook-form";
-import useSWR, { mutate } from "swr";
-import { ANSWER_API, LIST_QUESTIONS_API, REVIEW_LIST_API } from "../../../constants/routes";
+import useSWR from "swr";
+import { ANSWER_API, LIST_QUESTIONS_API } from "../../../constants/routes";
 import Button from "../../commons/Button";
 import { fetcher, HttpMethod, mutator } from "../../commons/utils/client";
 import { IReviewModel } from "../ListReviews";
@@ -29,7 +29,7 @@ const Question: FunctionComponent<IProps> = ({ review, close }) => {
     const { register, handleSubmit, errors } = useForm();
     const token = localStorage.getItem("token");
     const { data: questions } = useSWR<IQuestionList[]>([LIST_QUESTIONS_API, token], fetcher);
-
+    console.log(errors);
     const onSubmit = async (reviews: any) => {
         const answers: any[] = [];
         Object.entries(reviews).forEach(([questionId, answer]) => {
@@ -78,7 +78,7 @@ const Question: FunctionComponent<IProps> = ({ review, close }) => {
             </form>
         </>
     ) : (
-        <div></div>
+        <div />
     );
 };
 

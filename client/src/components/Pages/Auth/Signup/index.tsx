@@ -1,9 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
 import { mutate } from "swr";
 import { LIST_EMPLOYEES_API, SIGNUP_API } from "../../../../constants/routes";
-import { SignupSchema } from "../../../../schemas/signin";
 import Button from "../../../commons/Button";
 import Input from "../../../commons/Input";
 import { HttpMethod, mutator } from "../../../commons/utils/client";
@@ -16,7 +14,6 @@ interface ISignup {
 
 const Signup: FunctionComponent = () => {
     const { register, handleSubmit, errors } = useForm<ISignup>();
-    const history = useHistory();
 
     const onSubmit = async (user: ISignup) => {
         try {
@@ -24,7 +21,6 @@ const Signup: FunctionComponent = () => {
             const { username, password } = user;
             const { response } = await mutator(SIGNUP_API, HttpMethod.POST, undefined, { username, password });
             if (!response?.ok) throw new Error(`${response?.status}: ${response?.statusText}`);
-            const data = await response?.json();
             mutate([LIST_EMPLOYEES_API, token]);
         } catch (error) {
             console.error(error);

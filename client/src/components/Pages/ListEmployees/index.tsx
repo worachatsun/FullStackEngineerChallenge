@@ -55,7 +55,7 @@ const ListEmployees: FunctionComponent = () => {
             </Modal>
         </Layout>
     ) : (
-        <div></div>
+        <div />
     );
 };
 

@@ -5,7 +5,7 @@ import { REVIEWED_LIST_API } from "../../../constants/routes";
 import { fetcher } from "../../commons/utils/client";
 import Layout from "../../Layout";
 import { IReviewModel } from "../ListReviews";
-import { AnswerContainer, Hr, Lable, Table, Th, ThText, Tr, TrText } from "./Performance.styled";
+import { AnswerContainer, Lable, Table, Tr, TrText } from "./Performance.styled";
 
 interface IPerformanceModel extends IReviewModel {
     answers: IAnswerPayload[];
@@ -37,7 +37,7 @@ const Performance: FunctionComponent = () => {
                         </TrText>
                         <AnswerContainer>
                             {review.answers.map((answer: IAnswerPayload) => (
-                                <div>
+                                <div key={answer.id}>
                                     {`Question${answer.questionId}: `}
                                     {answer.answer}
                                 </div>
@@ -48,7 +48,7 @@ const Performance: FunctionComponent = () => {
             </Table>
         </Layout>
     ) : (
-        <div></div>
+        <div />
     );
 };
 

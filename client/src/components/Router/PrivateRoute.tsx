@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useContext, useEffect } from "react";
-import { Redirect, Route, useHistory } from "react-router-dom";
+import { Redirect, Route, RouteProps, useHistory } from "react-router-dom";
 import { USER_DETAIL_API } from "../../constants/routes";
 import { IUserContext, UserActionType, UserContext } from "../../context/UserContext";
 import { HttpMethod, mutator } from "../commons/utils/client";
@@ -19,23 +19,19 @@ const PrivateRoute: FunctionComponent<any> = ({ children, ...rest }) => {
         dispatch({ type: UserActionType.ADD_USER, payload: data as IUserContext });
     };
 
-    return (
-        <Route
-            {...rest}
-            render={({ location }) =>
-                token ? (
-                    children
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: "/",
-                            state: { from: location },
-                        }}
-                    />
-                )
-            }
-        />
-    );
+    const route = ({ location }: RouteProps) =>
+        token ? (
+            children
+        ) : (
+            <Redirect
+                to={{
+                    pathname: "/",
+                    state: { from: location },
+                }}
+            />
+        );
+
+    return <Route {...rest} render={route} />;
 };
 
 export default PrivateRoute;
