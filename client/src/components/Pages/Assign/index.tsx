@@ -2,11 +2,11 @@ import React, { FunctionComponent, useState } from "react";
 import Select from "react-select";
 import useSWR from "swr";
 import { REVIEW_API, REVIEW_USERS_API } from "../../../constants/routes";
+import { IListModel } from "../../../interfaces/model";
 import Button from "../../commons/Button";
 import Modal from "../../commons/Modal";
 import { fetcher, HttpMethod, mutator } from "../../commons/utils/client";
 import useModal from "../../Hook/useModal";
-import { IListModel } from "../ListEmployees";
 import { ButtonContainer, Container, Lable, Tag, TagContainer } from "./Assign.styled";
 import { filterOptions } from "./utils";
 interface IProps {

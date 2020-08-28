@@ -2,23 +2,10 @@ import React, { FunctionComponent } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import useSWR from "swr";
 import { REVIEWED_LIST_API } from "../../../constants/routes";
+import { IAnswerModel, IPerformanceModel } from "../../../interfaces/model";
 import { fetcher } from "../../commons/utils/client";
 import Layout from "../../Layout";
-import { IReviewModel } from "../ListReviews";
 import { AnswerContainer, Lable, Table, Tr, TrText } from "./ListPerformance.styled";
-
-export interface IPerformanceModel extends IReviewModel {
-    answers: IAnswerPayload[];
-}
-
-interface IAnswerPayload {
-    answer: string;
-    createdAt: Date;
-    id: number;
-    questionId: number;
-    reviewId: number;
-    updatedAt: Date;
-}
 
 const Performance: FunctionComponent = () => {
     const token = localStorage.getItem("token");
@@ -36,7 +23,7 @@ const Performance: FunctionComponent = () => {
                             {review.reviewTo}
                         </TrText>
                         <AnswerContainer>
-                            {review.answers.map((answer: IAnswerPayload) => (
+                            {review.answers.map((answer: IAnswerModel) => (
                                 <div key={answer.id}>
                                     {`Question${answer.questionId}: `}
                                     {answer.answer}

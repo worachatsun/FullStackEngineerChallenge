@@ -2,9 +2,9 @@ import React, { FunctionComponent } from "react";
 import { useForm } from "react-hook-form";
 import useSWR from "swr";
 import { ANSWER_API, LIST_QUESTIONS_API } from "../../../constants/routes";
+import { IPerformanceModel } from "../../../interfaces/model";
 import Button from "../../commons/Button";
 import { fetcher, HttpMethod, mutator } from "../../commons/utils/client";
-import { IPerformanceModel } from "../ListPerformance";
 import {
     AnswerContainer,
     ButtonContainer,

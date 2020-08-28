@@ -1,6 +1,6 @@
-import Signin from "./index";
 import React from "react";
 import renderer from "react-test-renderer";
+import Signin from "./index";
 
 describe("<Signin />", () => {
     test("should render correctly", () => {

@@ -3,30 +3,21 @@ import { FaCheckCircle } from "react-icons/fa";
 import useSWR from "swr";
 import { REVIEW_LIST_API } from "../../../constants/routes";
 import { UserContext } from "../../../context/UserContext";
+import { IPerformanceModel, IReviewModel } from "../../../interfaces/model";
 import Modal from "../../commons/Modal";
 import { fetcher } from "../../commons/utils/client";
 import useModal from "../../Hook/useModal";
 import Layout from "../../Layout";
-import { IPerformanceModel } from "../ListPerformance";
 import Question from "../Question";
 import { Lable, ListHeader, ReviewedTag, Table, Tr, TrText } from "./ListReviews.styled";
-
-export interface IReviewModel {
-    id: number;
-    reviewTo: string;
-    reviewBy: string;
-    isReview: boolean;
-    createdAt: Date;
-    updatedAt: Date;
-}
 
 const ListReviews: FunctionComponent = () => {
     const { isShowing, toggle, close } = useModal();
     const [review, setReview] = useState<IReviewModel>();
-    const token = localStorage.getItem("token") || "";
+    const token = localStorage.getItem("token");
     const { state } = useContext(UserContext);
     const { data = [], mutate } = useSWR<IReviewModel[]>(
-        [REVIEW_LIST_API, token, `username=${state.username}`],
+        [REVIEW_LIST_API, token as string, `username=${state.username}`],
         fetcher
     );
 

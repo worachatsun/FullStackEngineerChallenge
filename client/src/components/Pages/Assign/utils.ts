@@ -1,11 +1,11 @@
-import { IListModel } from "../ListEmployees";
+import { IListModel } from "../../../interfaces/model";
 
 interface IOption {
     value: string;
     label: string;
 }
 
-export const filterOptions = (users: IListModel[] = [], reviewed: string[], username: string) => {
+export const filterOptions = (users: IListModel[] = [], reviewed: string[], username: string): IOption[] => {
     const options: IOption[] = [];
     users.map((user: IListModel) => {
         if (!reviewed?.includes(user.username) && username !== user.username)

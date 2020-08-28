@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { FaUserTie } from "react-icons/fa";
 import useSWR from "swr";
 import { LIST_EMPLOYEES_API } from "../../../constants/routes";
+import { IListModel } from "../../../interfaces/model";
 import Button from "../../commons/Button";
 import Modal from "../../commons/Modal";
 import { fetcher } from "../../commons/utils/client";
@@ -12,18 +13,10 @@ import Remove from "../Auth/Remove";
 import Signup from "../Auth/Signup";
 import { ButtonContainer, Hr, Lable, ListHeader, Table, Th, ThText, Tr } from "./ListEmployees.styled";
 
-export interface IListModel {
-    id: number;
-    username: string;
-    isAdmin: boolean;
-    createdAt: Date;
-    updatedAt: Date;
-}
-
 const ListEmployees: FunctionComponent = () => {
     const { isShowing, toggle, close } = useModal();
-    const token = localStorage.getItem("token") || "";
-    const { data, mutate } = useSWR<IListModel[]>([LIST_EMPLOYEES_API, token], fetcher);
+    const token = localStorage.getItem("token");
+    const { data, mutate } = useSWR<IListModel[]>([LIST_EMPLOYEES_API, token as string], fetcher);
 
     return data ? (
         <Layout>
@@ -42,7 +35,7 @@ const ListEmployees: FunctionComponent = () => {
                         <Tr>
                             <div>{user.username}</div>
                             <ButtonContainer>
-                                <Assign username={user.username} users={data} token={token} />
+                                <Assign username={user.username} users={data} token={token as string} />
                                 <Remove username={user.username} mutate={mutate} />
                             </ButtonContainer>
                         </Tr>
