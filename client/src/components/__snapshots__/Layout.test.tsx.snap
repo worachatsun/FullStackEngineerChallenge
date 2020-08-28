@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout /> should render correctly 1`] = `
+Array [
+  <div
+    className="sc-AxirZ fqNgBu"
+  >
+    <div
+      className="sc-AxiKw jJjpKK"
+      onClick={[Function]}
+    >
+      <img
+        alt="logo"
+        src="img_logo.png"
+      />
+    </div>
+    <div
+      className="sc-AxhCb cupTmd"
+    >
+      <div
+        className="sc-AxhUy iYMzkw"
+      >
+        
+      </div>
+      <button
+        className="sc-AxjAm fbqdBC"
+        onClick={[Function]}
+      >
+        Logout
+      </button>
+    </div>
+  </div>,
+  <div
+    className="sc-AxheI jdaMWS"
+  >
+    <div
+      className="sc-AxgMl kikqEL"
+    />
+  </div>,
+]
+`;

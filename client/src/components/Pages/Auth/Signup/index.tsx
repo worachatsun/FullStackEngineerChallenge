@@ -19,11 +19,11 @@ const Signup: FunctionComponent = () => {
 
     const onSubmit = async (user: ISignup) => {
         try {
-            const token = localStorage.getItem("token") || "";
+            const token = localStorage.getItem("token");
             const { username, password } = user;
             const { response } = await mutator(SIGNUP_API, HttpMethod.POST, undefined, { username, password });
             if (!response?.ok) throw new Error(`${response?.status}: ${response?.statusText}`);
-            mutate([LIST_EMPLOYEES_API, token]);
+            mutate([LIST_EMPLOYEES_API, token as string]);
         } catch (error) {
             console.error(error);
         }

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Signup /> should render correctly 1`] = `
+<div
+  className="sc-AxiKw jAHgLp"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="sc-AxhCb bRcGML"
+    >
+      Signup
+    </div>
+    <div>
+      <label
+        htmlFor="Username"
+      >
+        Username
+        :
+        <input
+          className="sc-AxirZ lmasuR"
+          name="username"
+          type="text"
+        />
+      </label>
+    </div>
+    <div>
+      <label
+        htmlFor="Password"
+      >
+        Password
+        :
+        <input
+          className="sc-AxirZ lmasuR"
+          name="password"
+          type="password"
+        />
+      </label>
+    </div>
+    <button
+      className="sc-AxjAm fbqdBC"
+    >
+      Signup
+    </button>
+  </form>
+</div>
+`;

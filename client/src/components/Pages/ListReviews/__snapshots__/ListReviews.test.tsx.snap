@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListReviews /> should render correctly 1`] = `
+Array [
+  <div
+    className="sc-AxgMl gyEuQp"
+  >
+    <div
+      className="sc-AxheI dBoGpP"
+      onClick={[Function]}
+    >
+      <img
+        alt="logo"
+        src="img_logo.png"
+      />
+    </div>
+    <div
+      className="sc-Axmtr dLNRmH"
+    >
+      <div
+        className="sc-AxmLO lmWcHq"
+      >
+        
+      </div>
+      <button
+        className="sc-AxhUy ejktQs"
+        onClick={[Function]}
+      >
+        Logout
+      </button>
+    </div>
+  </div>,
+  <div
+    className="sc-fzoLsD kuWeDv"
+  >
+    <div
+      className="sc-fzozJi fGxptC"
+    >
+      <div
+        className="sc-fznxsB hQTags"
+      >
+        <div
+          className="sc-fzqNqU joXFMV"
+        >
+          No waiting list
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
