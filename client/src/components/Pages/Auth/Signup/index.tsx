@@ -6,6 +6,8 @@ import Button from "../../../commons/Button";
 import Input from "../../../commons/Input";
 import { HttpMethod, mutator } from "../../../commons/utils/client";
 import { Container, Label } from "./Signup.styled";
+import { SignupSchema } from "../../../../schemas/signin";
+import { yupResolver } from "@hookform/resolvers";
 
 interface ISignup {
     username: string;
@@ -13,7 +15,7 @@ interface ISignup {
 }
 
 const Signup: FunctionComponent = () => {
-    const { register, handleSubmit, errors } = useForm<ISignup>();
+    const { register, handleSubmit, errors } = useForm<ISignup>({ resolver: yupResolver(SignupSchema) });
 
     const onSubmit = async (user: ISignup) => {
         try {

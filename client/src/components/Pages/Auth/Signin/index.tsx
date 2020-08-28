@@ -7,6 +7,8 @@ import Button from "../../../commons/Button";
 import Input from "../../../commons/Input";
 import { HttpMethod, mutator } from "../../../commons/utils/client";
 import { Container, Label } from "./Signin.styled";
+import { yupResolver } from "@hookform/resolvers";
+import { SigninSchema } from "../../../../schemas/signin";
 
 interface ISignin {
     username: string;
@@ -14,7 +16,7 @@ interface ISignin {
 }
 
 const Signin: FunctionComponent = () => {
-    const { register, handleSubmit, errors } = useForm<ISignin>();
+    const { register, handleSubmit, errors } = useForm<ISignin>({ resolver: yupResolver(SigninSchema) });
     const { dispatch } = useContext(UserContext);
     const history = useHistory();
 
