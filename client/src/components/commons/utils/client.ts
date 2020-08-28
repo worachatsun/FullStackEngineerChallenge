@@ -1,3 +1,10 @@
+export enum HttpMethod {
+    GET = "GET",
+    POST = "POST",
+    PUT = "PUT",
+    DELETE = "DELETE",
+}
+
 export const fetcher = async <T>(url: string, token: string, qs?: URLSearchParams): Promise<T> => {
     try {
         const query = qs ? `?${qs.toString()}` : "";
@@ -40,11 +47,4 @@ const headersWithoutToken = {
 export interface IResponse {
     response?: Response;
     error?: Error;
-}
-
-export enum HttpMethod {
-    GET = "GET",
-    POST = "POST",
-    PUT = "PUT",
-    DELETE = "DELETE",
 }

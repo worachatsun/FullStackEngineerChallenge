@@ -20,7 +20,7 @@ const Header: FunctionComponent = () => {
     return (
         <HeaderContainer>
             <LogoContainer onClick={onClickLogo}>
-                <img src="img_logo.png" />
+                <img src="img_logo.png" alt="logo" />
             </LogoContainer>
             <LogoutContainer>
                 <UserContainer>{state.username}</UserContainer>

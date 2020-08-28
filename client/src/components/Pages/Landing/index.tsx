@@ -12,7 +12,7 @@ const Landing: FunctionComponent = () => {
         <Container>
             <Wrapper>
                 <LogoDiv>
-                    <img src="img_logo.png" />
+                    <img src="img_logo.png" alt="logo" />
                     <div>Performance Review</div>
                 </LogoDiv>
                 <SigninDiv>
