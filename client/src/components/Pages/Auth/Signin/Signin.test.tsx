@@ -1,10 +1,10 @@
+import Signin from "./index";
 import React from "react";
-import App from "./App";
 import renderer from "react-test-renderer";
 
-describe("<App />", () => {
+describe("<Signin />", () => {
     test("should render correctly", () => {
-        const render = renderer.create(<App />).toJSON();
+        const render = renderer.create(<Signin />).toJSON();
         expect(render).toMatchSnapshot();
     });
 });

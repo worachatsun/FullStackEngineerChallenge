@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render correctly 1`] = `
+<div
+  className="sc-AxhCb GzWzT"
+>
+  <div
+    className="sc-AxhUy iEcMhG"
+  >
+    <div
+      className="sc-AxgMl bFtxng"
+    >
+      <img
+        alt="logo"
+        src="img_logo.png"
+      />
+      <div>
+        Performance Review
+      </div>
+    </div>
+    <div
+      className="sc-AxheI gYMLrJ"
+    >
+      <div
+        className="sc-AxiKw jAHgLp"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <div>
+            <label
+              htmlFor="Username"
+            >
+              Username
+              :
+              <input
+                className="sc-AxirZ lmasuR"
+                name="username"
+                type="text"
+              />
+            </label>
+          </div>
+          <div>
+            <label
+              htmlFor="Password"
+            >
+              Password
+              :
+              <input
+                className="sc-AxirZ lmasuR"
+                name="password"
+                type="password"
+              />
+            </label>
+          </div>
+          <button
+            className="sc-AxjAm fbqdBC"
+          >
+            Signin
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
