@@ -23,7 +23,7 @@ interface IAnswerPayload {
 const Performance: FunctionComponent = () => {
     const token = localStorage.getItem("token");
     const { data = [] } = useSWR<IPerformanceModel[]>([REVIEWED_LIST_API, token], fetcher);
-    console.log(data);
+
     return data ? (
         <Layout>
             <Lable>Performance reviews</Lable>

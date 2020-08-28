@@ -1,14 +1,14 @@
+import { yupResolver } from "@hookform/resolvers";
 import React, { FunctionComponent, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { SIGNIN_API } from "../../../../constants/routes";
 import { UserActionType, UserContext } from "../../../../context/UserContext";
+import { SigninSchema } from "../../../../schemas/signin";
 import Button from "../../../commons/Button";
 import Input from "../../../commons/Input";
 import { HttpMethod, mutator } from "../../../commons/utils/client";
 import { Container, Label } from "./Signin.styled";
-import { yupResolver } from "@hookform/resolvers";
-import { SigninSchema } from "../../../../schemas/signin";
 
 interface ISignin {
     username: string;

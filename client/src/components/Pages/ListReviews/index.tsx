@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useContext, useState } from "react";
+import { FaCheckCircle } from "react-icons/fa";
 import useSWR from "swr";
 import { REVIEW_LIST_API } from "../../../constants/routes";
 import { UserContext } from "../../../context/UserContext";
@@ -6,10 +7,9 @@ import Modal from "../../commons/Modal";
 import { fetcher } from "../../commons/utils/client";
 import useModal from "../../Hook/useModal";
 import Layout from "../../Layout";
-import Question from "../Question";
-import { Lable, ListHeader, Table, Th, Tr, TrText, ReviewedTag } from "./ListReviews.styled";
-import { FaCheckCircle } from "react-icons/fa";
 import { IPerformanceModel } from "../Performance";
+import Question from "../Question";
+import { Lable, ListHeader, ReviewedTag, Table, Th, Tr, TrText } from "./ListReviews.styled";
 
 export interface IReviewModel {
     id: number;

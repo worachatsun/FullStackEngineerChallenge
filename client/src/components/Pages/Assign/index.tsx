@@ -62,7 +62,7 @@ const Assign: FunctionComponent<IProps> = ({ username, users, token }) => {
             <Modal isShowing={isShowing} close={close}>
                 <Container>
                     <Lable>Assign to: {username}</Lable>
-                    <Select options={assignUsers} isMulti onChange={handleChange} />
+                    <Select options={assignUsers} isMulti={true} onChange={handleChange} />
                     <TagContainer>
                         {reviewed.map((user, index: number) => (
                             <Tag key={index}>{user}</Tag>

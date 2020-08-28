@@ -25,7 +25,6 @@ export default (app: Router) => {
     async (req: IUserAuthRequest, res: Response) => {
       const userService = new UserService();
       const user = await userService.getUser(req.user?.username || '');
-      console.log(user);
       return res.json(user).status(200);
     }
   );

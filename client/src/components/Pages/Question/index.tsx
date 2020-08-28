@@ -4,17 +4,17 @@ import useSWR from "swr";
 import { ANSWER_API, LIST_QUESTIONS_API } from "../../../constants/routes";
 import Button from "../../commons/Button";
 import { fetcher, HttpMethod, mutator } from "../../commons/utils/client";
+import { IPerformanceModel } from "../Performance";
 import {
     AnswerContainer,
     ButtonContainer,
+    ErrorMessage,
     HeaderContainer,
     Lable,
     QuestionContainer,
     QuestionText,
     Radio,
-    ErrorMessage,
 } from "./Question.styled";
-import { IPerformanceModel } from "../Performance";
 
 interface IProps {
     review: IPerformanceModel;
@@ -49,7 +49,7 @@ const Question: FunctionComponent<IProps> = ({ review, close }) => {
     };
 
     const renderRadio = (id: number) => {
-        let radios = [];
+        const radios = [];
         for (let i = 1; i <= 5; i++) {
             radios.push(
                 <Radio
