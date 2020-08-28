@@ -67,4 +67,15 @@ export const Lable = styled.div`
 
 export const TrText = styled.div`
     margin-left: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+`;
+
+export const ReviewedTag = styled.div`
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #ff0033;
+    display: flex;
 `;

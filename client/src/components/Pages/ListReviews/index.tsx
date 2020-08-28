@@ -7,7 +7,9 @@ import { fetcher } from "../../commons/utils/client";
 import useModal from "../../Hook/useModal";
 import Layout from "../../Layout";
 import Question from "../Question";
-import { Lable, ListHeader, Table, Th, Tr, TrText } from "./ListReviews.styled";
+import { Lable, ListHeader, Table, Th, Tr, TrText, ReviewedTag } from "./ListReviews.styled";
+import { FaCheckCircle } from "react-icons/fa";
+import { IPerformanceModel } from "../Performance";
 
 export interface IReviewModel {
     id: number;
@@ -27,7 +29,7 @@ const ListReviews: FunctionComponent = () => {
         [REVIEW_LIST_API, token, `username=${state.username}`],
         fetcher
     );
-
+    console.log(data);
     const closeModal = () => {
         close();
         mutate([...(data as IReviewModel[])]);
@@ -47,13 +49,22 @@ const ListReviews: FunctionComponent = () => {
                     };
                     return (
                         <Tr onClick={onClick} key={index}>
-                            <TrText>{payload.reviewTo}</TrText>
+                            <TrText>
+                                {payload.reviewTo}
+                                {payload.isReview ? (
+                                    <ReviewedTag>
+                                        <FaCheckCircle />
+                                    </ReviewedTag>
+                                ) : (
+                                    ""
+                                )}
+                            </TrText>
                         </Tr>
                     );
                 })}
             </Table>
             <Modal isShowing={isShowing} close={close}>
-                <Question review={review as IReviewModel} close={closeModal} />
+                <Question review={review as IPerformanceModel} close={closeModal} />
             </Modal>
         </Layout>
     ) : (

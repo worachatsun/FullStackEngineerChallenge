@@ -34,8 +34,9 @@ export default class ReviewService {
   public getReviewsByUsername = async (username: string) => {
     try {
       const reviews = await this.ReviewModel.findAll({
-        where: { reviewBy: username, isReview: false },
-        raw: true,
+        where: { reviewBy: username },
+        order: [['isReview', 'ASC']],
+        include: ['answers'],
       });
       return reviews;
     } catch (e) {
@@ -46,6 +47,7 @@ export default class ReviewService {
   public getAllReviewed = async () => {
     try {
       const reviews = await this.ReviewModel.findAll({
+        where: { isReview: true },
         include: ['answers'],
       });
       return reviews;

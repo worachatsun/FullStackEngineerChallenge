@@ -7,7 +7,7 @@ import Layout from "../../Layout";
 import { IReviewModel } from "../ListReviews";
 import { AnswerContainer, Lable, Table, Tr, TrText } from "./Performance.styled";
 
-interface IPerformanceModel extends IReviewModel {
+export interface IPerformanceModel extends IReviewModel {
     answers: IAnswerPayload[];
 }
 
