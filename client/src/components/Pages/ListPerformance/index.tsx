@@ -5,7 +5,7 @@ import { REVIEWED_LIST_API } from "../../../constants/routes";
 import { fetcher } from "../../commons/utils/client";
 import Layout from "../../Layout";
 import { IReviewModel } from "../ListReviews";
-import { AnswerContainer, Lable, Table, Tr, TrText } from "./Performance.styled";
+import { AnswerContainer, Lable, Table, Tr, TrText } from "./ListPerformance.styled";
 
 export interface IPerformanceModel extends IReviewModel {
     answers: IAnswerPayload[];

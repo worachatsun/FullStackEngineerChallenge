@@ -8,7 +8,7 @@ import { SigninSchema } from "../../../../schemas/signin";
 import Button from "../../../commons/Button";
 import Input from "../../../commons/Input";
 import { HttpMethod, mutator } from "../../../commons/utils/client";
-import { Container, Label } from "./Signin.styled";
+import { Container } from "./Signin.styled";
 
 interface ISignin {
     username: string;
@@ -37,7 +37,6 @@ const Signin: FunctionComponent = () => {
     return (
         <Container>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <Label>Signin</Label>
                 <Input title={"Username"} name="username" errors={errors.username} register={register} />
                 <Input
                     title={"Password"}

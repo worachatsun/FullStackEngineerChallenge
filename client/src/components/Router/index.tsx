@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserProvider from "../../context/UserContext";
 import Landing from "../Pages/Landing";
 import ListEmployees from "../Pages/ListEmployees";
+import ListPerformance from "../Pages/ListPerformance";
 import ListReviews from "../Pages/ListReviews";
-import Performance from "../Pages/Performance";
 import PrivateRoute from "./PrivateRoute";
 import UserRoute from "./UserRoute";
 
@@ -17,7 +17,7 @@ const RouterCompoment: FunctionComponent = () => {
                         <ListEmployees />
                     </PrivateRoute>
                     <PrivateRoute path="/performance">
-                        <Performance />
+                        <ListPerformance />
                     </PrivateRoute>
                     <UserRoute path="/reviews">
                         <ListReviews />

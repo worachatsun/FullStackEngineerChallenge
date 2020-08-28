@@ -4,7 +4,7 @@ import useSWR from "swr";
 import { ANSWER_API, LIST_QUESTIONS_API } from "../../../constants/routes";
 import Button from "../../commons/Button";
 import { fetcher, HttpMethod, mutator } from "../../commons/utils/client";
-import { IPerformanceModel } from "../Performance";
+import { IPerformanceModel } from "../ListPerformance";
 import {
     AnswerContainer,
     ButtonContainer,

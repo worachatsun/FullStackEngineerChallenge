@@ -5,8 +5,3 @@ export const Container = styled.div`
     flex-direction: column;
     width: 100%;
 `;
-
-export const Label = styled.div`
-    margin-bottom: 20px;
-    font-size: 1.5em;
-`;

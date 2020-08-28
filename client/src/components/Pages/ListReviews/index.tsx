@@ -7,9 +7,9 @@ import Modal from "../../commons/Modal";
 import { fetcher } from "../../commons/utils/client";
 import useModal from "../../Hook/useModal";
 import Layout from "../../Layout";
-import { IPerformanceModel } from "../Performance";
+import { IPerformanceModel } from "../ListPerformance";
 import Question from "../Question";
-import { Lable, ListHeader, ReviewedTag, Table, Th, Tr, TrText } from "./ListReviews.styled";
+import { Lable, ListHeader, ReviewedTag, Table, Tr, TrText } from "./ListReviews.styled";
 
 export interface IReviewModel {
     id: number;
@@ -38,10 +38,9 @@ const ListReviews: FunctionComponent = () => {
     return data && data.length ? (
         <Layout>
             <ListHeader>
-                <Lable>List Employees</Lable>
+                <Lable>Waiting for reviews</Lable>
             </ListHeader>
             <Table>
-                <Th>Waiting for reviews</Th>
                 {data.map((payload: IReviewModel, index: number) => {
                     const onClick = () => {
                         setReview(payload);
