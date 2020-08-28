@@ -29,7 +29,7 @@ const ListReviews: FunctionComponent = () => {
         [REVIEW_LIST_API, token, `username=${state.username}`],
         fetcher
     );
-    console.log(data);
+
     const closeModal = () => {
         close();
         mutate([...(data as IReviewModel[])]);

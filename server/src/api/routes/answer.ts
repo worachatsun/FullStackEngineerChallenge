@@ -13,7 +13,6 @@ export default (app: Router) => {
       const { answers } = req.body;
       const answerService = new Answer();
       const payload = await answerService.setMultiAnswer(answers);
-      console.log(payload);
       return res.json(payload).status(200);
     }
   );

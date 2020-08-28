@@ -1,6 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../loaders/mysql';
-import { Review } from './Review';
 import { Question } from './Question';
 
 export interface IAnswerModel {
@@ -42,3 +41,6 @@ Answer.init(
     freezeTableName: true,
   }
 );
+
+Question.hasMany(Answer, { foreignKey: 'questionId', sourceKey: 'id' });
+Answer.belongsTo(Question, { targetKey: 'id' });

@@ -30,7 +30,6 @@ export default (app: Router) => {
       users.map((user: { reviewBy: string }) => {
         reviews.push(user.reviewBy);
       });
-      console.log(reviews);
       return res.json(reviews).status(200);
     }
   );

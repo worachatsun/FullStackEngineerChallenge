@@ -26,5 +26,3 @@ Question.init(
     freezeTableName: true,
   }
 );
-
-Question.hasMany(Answer, { as: 'answer', foreignKey: 'questionId' });

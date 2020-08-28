@@ -1,5 +1,6 @@
 import { Review } from '../models/Review';
 import dotenv from 'dotenv';
+import { Answer } from '../models/Answer';
 
 dotenv.config();
 
@@ -48,7 +49,13 @@ export default class ReviewService {
     try {
       const reviews = await this.ReviewModel.findAll({
         where: { isReview: true },
-        include: ['answers'],
+        include: [
+          {
+            model: Answer,
+            as: 'answers',
+          },
+        ],
+        order: [['answers', 'questionId', 'ASC']],
       });
       return reviews;
     } catch (e) {
