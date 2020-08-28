@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers";
-import React, { FunctionComponent, useContext } from "react";
+import React, { FunctionComponent, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { SIGNIN_API } from "../../../../constants/routes";
@@ -8,7 +8,7 @@ import { SigninSchema } from "../../../../schemas/auth";
 import Button from "../../../commons/Button";
 import Input from "../../../commons/Input";
 import { HttpMethod, mutator } from "../../../commons/utils/client";
-import { Container } from "./Signin.styled";
+import { Container, ErrorMessage } from "./Signin.styled";
 import { UserType } from "../../../../context/types";
 
 interface ISignin {
@@ -19,14 +19,18 @@ interface ISignin {
 const Signin: FunctionComponent = () => {
     const { register, handleSubmit, errors } = useForm<ISignin>({ resolver: yupResolver(SigninSchema) });
     const { dispatch } = useContext(UserContext);
+    const [error, setError] = useState<string>("");
     const history = useHistory();
 
     const onSubmit = async (user: ISignin) => {
         try {
             const { username, password } = user;
             const { response } = await mutator(SIGNIN_API, HttpMethod.POST, undefined, { username, password });
-            if (!response?.ok) throw new Error(`${response?.status}: ${response?.statusText}`);
             const data = await response?.json();
+            if (!response?.ok) {
+                setError(data.error as string);
+                throw new Error(`${response?.status}: ${response?.statusText}`);
+            }
             localStorage.setItem("token", data.user.token);
             dispatch({ type: UserType.addUser, payload: data.user.user });
             history.push("/list");
@@ -48,6 +52,7 @@ const Signin: FunctionComponent = () => {
                 />
                 <Button>Signin</Button>
             </form>
+            <ErrorMessage>{error}</ErrorMessage>
         </Container>
     );
 };

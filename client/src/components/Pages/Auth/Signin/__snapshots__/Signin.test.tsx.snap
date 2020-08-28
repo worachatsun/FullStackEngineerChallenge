@@ -39,5 +39,10 @@ exports[`<Signin /> should render correctly 1`] = `
       Signin
     </button>
   </form>
+  <div
+    className="sc-AxhCb iLDmSv"
+  >
+    
+  </div>
 </div>
 `;

@@ -36,7 +36,7 @@ export default class AuthService {
   public SignIn = async (username: string, password: string) => {
     const res = await this.UserModel.findOne({ where: { username } });
     if (!res) {
-      throw new Error('User not login');
+      throw new Error('Invalid Username');
     }
 
     if (compareSync(password, res.password)) {

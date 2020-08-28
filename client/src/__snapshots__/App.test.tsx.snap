@@ -2,13 +2,13 @@
 
 exports[`<App /> should render correctly 1`] = `
 <div
-  className="sc-AxhCb GzWzT"
+  className="sc-AxhUy jytBcu"
 >
   <div
-    className="sc-AxhUy iEcMhG"
+    className="sc-AxgMl zDGTk"
   >
     <div
-      className="sc-AxgMl bFtxng"
+      className="sc-AxheI gdhAZC"
     >
       <img
         alt="logo"
@@ -19,7 +19,7 @@ exports[`<App /> should render correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-AxheI gYMLrJ"
+      className="sc-Axmtr ehiWYG"
     >
       <div
         className="sc-AxiKw jAHgLp"
@@ -59,6 +59,11 @@ exports[`<App /> should render correctly 1`] = `
             Signin
           </button>
         </form>
+        <div
+          className="sc-AxhCb iLDmSv"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
