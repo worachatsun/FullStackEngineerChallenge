@@ -8,7 +8,7 @@ import { SigninSchema } from "../../../../schemas/auth";
 import Button from "../../../commons/Button";
 import Input from "../../../commons/Input";
 import { HttpMethod, mutator } from "../../../commons/utils/client";
-import { Container, ErrorMessage } from "./Signin.styled";
+import { Container, ErrorMessage, ButtonContainer } from "./Signin.styled";
 import { UserType } from "../../../../context/types";
 
 interface ISignin {
@@ -50,7 +50,9 @@ const Signin: FunctionComponent = () => {
                     register={register}
                     type={"password"}
                 />
-                <Button>Signin</Button>
+                <ButtonContainer>
+                    <Button>Signin</Button>
+                </ButtonContainer>
             </form>
             <ErrorMessage>{error}</ErrorMessage>
         </Container>

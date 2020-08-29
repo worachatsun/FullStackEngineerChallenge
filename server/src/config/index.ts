@@ -11,7 +11,7 @@ export default {
     prefix: '/api',
   },
   mySQL: {
-    HOST: process.env.MYSQL_HOST || 'localhost',
+    HOST: process.env.DOCKER_COMPOSE_MYSQL_HOST || 'localhost',
     USER: process.env.MYSQL_USER || 'root',
     PORT: parseInt(process.env.MYSQL_PORT || '3306'),
     PASSWORD: process.env.MYSQL_PASSWORD || '',
