@@ -16,7 +16,10 @@
   "build": "rimraf ./build && tsc",
   "scripts": {
     "start:dev": "nodemon",
-    "start": "npm run build && node build/index.js"
+    "start": "npm run build && node build/index.js",
+    "unseed": "npx sequelize-cli db:seed:undo:all",
+    "seed": "npx sequelize-cli db:seed:all",
+    "migrate": "npx sequelize-cli db:migrate"
   },
   "dependencies": {
     "@types/bcrypt": "^3.0.0",
