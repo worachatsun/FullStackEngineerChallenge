@@ -6,7 +6,7 @@ import { Container, LogoDiv, SigninDiv, Wrapper } from "./Landing.styled";
 const Landing: FunctionComponent = () => {
     const history = useHistory();
     const token = localStorage.getItem("token");
-    if (token) history.push("/list");
+    if (token) history.push("/employees");
 
     return (
         <Container>

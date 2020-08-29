@@ -13,7 +13,7 @@ const RouterCompoment: FunctionComponent = () => {
         <UserProvider>
             <Router>
                 <Switch>
-                    <PrivateRoute path="/list">
+                    <PrivateRoute path="/employees">
                         <ListEmployees />
                     </PrivateRoute>
                     <PrivateRoute path="/performance">

@@ -33,7 +33,7 @@ const Signin: FunctionComponent = () => {
             }
             localStorage.setItem("token", data.user.token);
             dispatch({ type: UserType.addUser, payload: data.user.user });
-            history.push("/list");
+            history.push("/employees");
         } catch (error) {
             console.error(error);
         }
