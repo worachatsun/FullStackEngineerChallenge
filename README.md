@@ -1,6 +1,20 @@
 # Full Stack Developer Challenge
 This is an interview challengs. Please feel free to fork. Pull Requests will be ignored.
 
+
+## To run this code
+### Simple solution
+- Change .env.example to .env and edit .env file (Please change `DOCKER_COMPOSE_MYSQL_HOST` in .env same as `MYSQL_HOST`)
+- `yarn` on both server folder and client folder
+- In server folder `yarn migrate` to migrate table and seed data
+- `yarn start` on client folder
+- `yarn start:dev` in server folder
+### Docker compose
+- Change the .env.example to .env in the server folder
+- In the root directory. run `docker-compose up`
+- After finish running docker-compose, get inside the server folder and seeding the data by:
+	- run `npx sequelize-cli db:seed:all` or install server dependencies by `yarn` and `yarn seed`
+
 ## Requirements
 Design a web application that allows employees to submit feedback toward each other's performance review.
 
