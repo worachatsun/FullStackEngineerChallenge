@@ -14,7 +14,7 @@ import {
 const Header: FunctionComponent = () => {
     const { state } = useContext(UserContext);
     const history = useHistory();
-    console.log(history);
+
     const onClickLogout = () => {
         localStorage.removeItem("token");
         history.push("/");
