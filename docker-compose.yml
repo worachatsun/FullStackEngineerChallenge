@@ -1,0 +1,57 @@
+version: '3.7'
+
+services:
+  mysql-db:
+    image: mysql/mysql-server:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: paypay
+      MYSQL_PASSWORD: paypay
+      MYSQL_DATABASE: paypay
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - paypay-network
+
+  node-app:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-db
+    ports:
+      - '3001:3001'
+    expose:
+      - '3001'
+    volumes:
+      - ./server:/opt/app:delegated
+      - ./server/package.json:/opt/package.json
+      - ./server/package-lock.json:/opt/package-lock.json
+      - notused:/opt/app/node_modules
+    networks:
+      - paypay-network
+
+
+  # web-client:
+  #   build:
+  #     context: ./client
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - '3000:3000'
+  #   expose:
+  #     - '3000'
+  #   networks:
+  #     - paypay-network
+  #   stdin_open: true
+
+volumes:
+  db_data:
+  notused:
+
+networks:
+  paypay-network:
+    driver: bridge
