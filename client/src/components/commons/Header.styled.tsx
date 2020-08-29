@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.div`
     display: flex;
@@ -21,4 +22,18 @@ export const LogoutContainer = styled.div`
 
 export const UserContainer = styled.div`
     margin-right: 10px;
+`;
+
+export const LinkContainer = styled.div`
+    display: flex;
+`;
+
+export const LinkWrapper = styled(Link)<{ color: string }>`
+    margin-right: 20px;
+    text-decoration: none;
+    color: ${(props) => props.color};
+    &:visited {
+        color: ${(props) => props.color};
+        text-decoration: none;
+    }
 `;
