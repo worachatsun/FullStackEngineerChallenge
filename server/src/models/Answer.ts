@@ -43,4 +43,3 @@ Answer.init(
 );
 
 Question.hasMany(Answer, { foreignKey: 'questionId', sourceKey: 'id' });
-Answer.belongsTo(Question, { targetKey: 'id' });
