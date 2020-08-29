@@ -4,6 +4,7 @@ import useSWR from "swr";
 import { LIST_EMPLOYEES_API } from "../../../constants/routes";
 import { IListModel } from "../../../interfaces/model";
 import Button from "../../commons/Button";
+import Empty from "../../commons/Empty";
 import Modal from "../../commons/Modal";
 import { fetcher } from "../../commons/utils/client";
 import useModal from "../../Hook/useModal";
@@ -42,13 +43,14 @@ const ListEmployees: FunctionComponent = () => {
                     </div>
                 ))}
                 <Hr />
+                {data.length === 0 ? <Empty title="No user yet. Please add a user." /> : <div />}
             </Table>
             <Modal isShowing={isShowing} close={close}>
                 <Signup />
             </Modal>
         </Layout>
     ) : (
-        <div />
+        <div>Loading</div>
     );
 };
 

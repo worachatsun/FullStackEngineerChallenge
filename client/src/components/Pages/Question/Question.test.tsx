@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Question from "./index";
 import { IPerformanceModel } from "../../../interfaces/model";
+import Question from "./index";
 
 describe("<Question />", () => {
     const review = {

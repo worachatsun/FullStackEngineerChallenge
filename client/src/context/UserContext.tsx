@@ -1,6 +1,6 @@
 import React, { createContext, Dispatch, FunctionComponent, useReducer } from "react";
 import { reducer } from "./reducer";
-import { IUserContext, IUserAction } from "./types";
+import { IUserAction, IUserContext } from "./types";
 
 const initUserContext: IUserContext = {
     username: "",

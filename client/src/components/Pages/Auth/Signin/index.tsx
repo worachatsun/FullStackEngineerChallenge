@@ -3,13 +3,13 @@ import React, { FunctionComponent, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { SIGNIN_API } from "../../../../constants/routes";
+import { UserType } from "../../../../context/types";
 import { UserContext } from "../../../../context/UserContext";
 import { SigninSchema } from "../../../../schemas/auth";
 import Button from "../../../commons/Button";
 import Input from "../../../commons/Input";
 import { HttpMethod, mutator } from "../../../commons/utils/client";
-import { Container, ErrorMessage, ButtonContainer } from "./Signin.styled";
-import { UserType } from "../../../../context/types";
+import { ButtonContainer, Container, ErrorMessage } from "./Signin.styled";
 
 interface ISignin {
     username: string;

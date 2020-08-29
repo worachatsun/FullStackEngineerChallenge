@@ -3,10 +3,10 @@
 exports[`<ListReviews /> should render correctly 1`] = `
 Array [
   <div
-    className="sc-AxgMl gyEuQp"
+    className="sc-AxheI eSgXxz"
   >
     <div
-      className="sc-AxheI dBoGpP"
+      className="sc-Axmtr emrCAY"
       onClick={[Function]}
     >
       <img
@@ -14,16 +14,17 @@ Array [
         src="img_logo.png"
       />
     </div>
+    <div />
     <div
-      className="sc-Axmtr dLNRmH"
+      className="sc-AxmLO eALlxi"
     >
       <div
-        className="sc-AxmLO lmWcHq"
+        className="sc-fzozJi intoob"
       >
         
       </div>
       <button
-        className="sc-AxhUy ejktQs"
+        className="sc-AxgMl jgdjSi"
         onClick={[Function]}
       >
         Logout
@@ -31,16 +32,25 @@ Array [
     </div>
   </div>,
   <div
-    className="sc-fzoLsD kuWeDv"
+    className="sc-fznyAO hRSPUm"
   >
     <div
-      className="sc-fzozJi fGxptC"
+      className="sc-fzplWN emSGEd"
     >
       <div
-        className="sc-fznxsB hQTags"
+        className="sc-fzpjYC sc-fznWqX tKlnQ"
       >
         <div
-          className="sc-fzqNqU joXFMV"
+          className="sc-fzoXWK hrcjGx"
+        >
+          Waiting for reviews
+        </div>
+      </div>
+      <div
+        className="sc-fzoiQi iVUyaZ"
+      >
+        <div
+          className="sc-AxjAm cGpQcy"
         >
           No waiting list
         </div>

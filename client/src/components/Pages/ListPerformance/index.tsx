@@ -3,6 +3,7 @@ import { FaAngleRight } from "react-icons/fa";
 import useSWR from "swr";
 import { REVIEWED_LIST_API } from "../../../constants/routes";
 import { IAnswerModel, IPerformanceModel } from "../../../interfaces/model";
+import Empty from "../../commons/Empty";
 import { fetcher } from "../../commons/utils/client";
 import Layout from "../../Layout";
 import { AnswerContainer, Lable, Table, Tr, TrText } from "./ListPerformance.styled";
@@ -32,10 +33,11 @@ const Performance: FunctionComponent = () => {
                         </AnswerContainer>
                     </Tr>
                 ))}
+                {data.length === 0 ? <Empty title="No review yet. Please come back later." /> : <div />}
             </Table>
         </Layout>
     ) : (
-        <div />
+        <div>Loading</div>
     );
 };
 

@@ -1,5 +1,5 @@
 import { reducer } from "./reducer";
-import { UserType, IUserContext } from "./types";
+import { IUserContext, UserType } from "./types";
 
 describe("UserContext reducer", () => {
     test("should handle UserType.addUser correctly", () => {

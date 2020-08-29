@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useContext, useEffect } from "react";
 import { Redirect, Route, RouteProps } from "react-router-dom";
 import { USER_DETAIL_API } from "../../constants/routes";
+import { IUserContext, UserType } from "../../context/types";
 import { UserContext } from "../../context/UserContext";
 import { HttpMethod, mutator } from "../commons/utils/client";
-import { UserType, IUserContext } from "../../context/types";
 
 const UserRoute: FunctionComponent<any> = ({ children, ...rest }) => {
     const token = localStorage.getItem("token");

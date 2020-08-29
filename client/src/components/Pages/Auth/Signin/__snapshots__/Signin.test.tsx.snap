@@ -14,7 +14,7 @@ exports[`<Signin /> should render correctly 1`] = `
         Username
         :
         <input
-          className="sc-AxirZ lmasuR"
+          className="sc-AxjAm dDuNse"
           name="username"
           type="text"
         />
@@ -27,17 +27,21 @@ exports[`<Signin /> should render correctly 1`] = `
         Password
         :
         <input
-          className="sc-AxirZ lmasuR"
+          className="sc-AxjAm dDuNse"
           name="password"
           type="password"
         />
       </label>
     </div>
-    <button
-      className="sc-AxjAm fbqdBC"
+    <div
+      className="sc-AxhUy fSnPfa"
     >
-      Signin
-    </button>
+      <button
+        className="sc-AxirZ jslcTR"
+      >
+        Signin
+      </button>
+    </div>
   </form>
   <div
     className="sc-AxhCb iLDmSv"

@@ -1,4 +1,3 @@
-import React from "react";
 import { filterOptions } from "./utils";
 
 describe("Filter users as option ", () => {

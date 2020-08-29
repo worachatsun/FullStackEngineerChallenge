@@ -1,8 +1,8 @@
+import { shallow } from "enzyme";
 import React from "react";
 import renderer from "react-test-renderer";
-import Signin from "./index";
 import Input from "../../../commons/Input";
-import { shallow } from "enzyme";
+import Signin from "./index";
 
 describe("<Signin />", () => {
     test("should render correctly", () => {

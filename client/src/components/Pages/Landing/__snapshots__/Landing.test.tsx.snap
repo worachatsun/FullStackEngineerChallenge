@@ -2,13 +2,13 @@
 
 exports[`<Landing /> should render correctly 1`] = `
 <div
-  className="sc-AxhUy jytBcu"
+  className="sc-AxgMl cdAbXQ"
 >
   <div
-    className="sc-AxgMl zDGTk"
+    className="sc-AxheI gaSZsu"
   >
     <div
-      className="sc-AxheI gdhAZC"
+      className="sc-Axmtr gbJyMF"
     >
       <img
         alt="logo"
@@ -19,7 +19,7 @@ exports[`<Landing /> should render correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-Axmtr ehiWYG"
+      className="sc-AxmLO fLXFPP"
     >
       <div
         className="sc-AxiKw jAHgLp"
@@ -53,11 +53,15 @@ exports[`<Landing /> should render correctly 1`] = `
               />
             </label>
           </div>
-          <button
-            className="sc-AxjAm fbqdBC"
+          <div
+            className="sc-AxhUy fSnPfa"
           >
-            Signin
-          </button>
+            <button
+              className="sc-AxjAm fbqdBC"
+            >
+              Signin
+            </button>
+          </div>
         </form>
         <div
           className="sc-AxhCb iLDmSv"

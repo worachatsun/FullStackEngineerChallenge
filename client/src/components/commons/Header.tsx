@@ -1,21 +1,20 @@
 import React, { FunctionComponent, useContext } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import Button from "./Button";
 import {
     HeaderContainer,
+    LinkContainer,
+    LinkWrapper,
     LogoContainer,
     LogoutContainer,
     UserContainer,
-    LinkContainer,
-    LinkWrapper,
 } from "./Header.styled";
 
 const Header: FunctionComponent = () => {
     const { state } = useContext(UserContext);
-    const location = useLocation();
     const history = useHistory();
-
+    console.log(history);
     const onClickLogout = () => {
         localStorage.removeItem("token");
         history.push("/");
@@ -38,7 +37,7 @@ const Header: FunctionComponent = () => {
             {state.isAdmin ? (
                 <LinkContainer>
                     {routes.map((route: { link: string; name: string }, index: number) => {
-                        const currentRoute = route.link === location.pathname ? "#ff0033" : "black";
+                        const currentRoute = route.link === history.location.pathname ? "#ff0033" : "black";
                         return (
                             <LinkWrapper to={route.link} color={currentRoute} key={index}>
                                 {route.name}

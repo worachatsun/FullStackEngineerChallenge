@@ -3,10 +3,10 @@
 exports[`<ListPerformance /> should render correctly 1`] = `
 Array [
   <div
-    className="sc-AxirZ fqNgBu"
+    className="sc-AxiKw lWgfG"
   >
     <div
-      className="sc-AxiKw jJjpKK"
+      className="sc-AxhCb DCALu"
       onClick={[Function]}
     >
       <img
@@ -14,16 +14,17 @@ Array [
         src="img_logo.png"
       />
     </div>
+    <div />
     <div
-      className="sc-AxhCb cupTmd"
+      className="sc-AxhUy jKlWsg"
     >
       <div
-        className="sc-AxhUy iYMzkw"
+        className="sc-AxgMl fmPfCS"
       >
         
       </div>
       <button
-        className="sc-AxjAm fbqdBC"
+        className="sc-AxirZ jslcTR"
         onClick={[Function]}
       >
         Logout
@@ -31,19 +32,25 @@ Array [
     </div>
   </div>,
   <div
-    className="sc-AxheI jdaMWS"
+    className="sc-fzozJi hcqIrN"
   >
     <div
-      className="sc-AxgMl kikqEL"
+      className="sc-AxmLO gXhSTr"
     >
       <div
-        className="sc-fzozJi cnJWyh"
+        className="sc-fzplWN fsMqCe"
       >
         Performance reviews
       </div>
       <div
-        className="sc-fzoLsD kLfYbT"
-      />
+        className="sc-fznyAO gFMpqC"
+      >
+        <div
+          className="sc-AxjAm cGpQcy"
+        >
+          No review yet. Please come back later.
+        </div>
+      </div>
     </div>
   </div>,
 ]

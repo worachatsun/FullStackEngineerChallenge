@@ -4,6 +4,7 @@ import useSWR from "swr";
 import { REVIEW_LIST_API } from "../../../constants/routes";
 import { UserContext } from "../../../context/UserContext";
 import { IPerformanceModel, IReviewModel } from "../../../interfaces/model";
+import Empty from "../../commons/Empty";
 import Modal from "../../commons/Modal";
 import { fetcher } from "../../commons/utils/client";
 import useModal from "../../Hook/useModal";
@@ -26,7 +27,7 @@ const ListReviews: FunctionComponent = () => {
         mutate([...(data as IReviewModel[])]);
     };
 
-    return data && data.length ? (
+    return data ? (
         <Layout>
             <ListHeader>
                 <Lable>Waiting for reviews</Lable>
@@ -52,17 +53,14 @@ const ListReviews: FunctionComponent = () => {
                         </Tr>
                     );
                 })}
+                {data.length === 0 ? <Empty title="No waiting list" /> : <div />}
             </Table>
             <Modal isShowing={isShowing} close={close}>
                 <Question review={review as IPerformanceModel} close={closeModal} />
             </Modal>
         </Layout>
     ) : (
-        <Layout>
-            <Table>
-                <Lable>No waiting list</Lable>
-            </Table>
-        </Layout>
+        <div>Loading</div>
     );
 };
 

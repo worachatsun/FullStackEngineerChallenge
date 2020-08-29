@@ -1,10 +1,10 @@
+import { shallow } from "enzyme";
 import React from "react";
 import renderer from "react-test-renderer";
-import Assign from "./index";
 import { UserMockup } from "../../../interfaces/model";
-import { shallow } from "enzyme";
 import Button from "../../commons/Button";
 import Modal from "../../commons/Modal";
+import Assign from "./index";
 
 describe("<Assign />", () => {
     test("should render correctly", () => {
